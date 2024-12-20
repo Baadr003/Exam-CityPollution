@@ -1,0 +1,20 @@
+/* src/styles/globals.css */
+body {
+  margin: 0;
+  background: linear-gradient(45deg, #f3f4f6 0%, #fff 100%);
+  min-height: 100vh;
+}
+
+.leaflet-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.pollution-card {
+  transition: all 0.3s ease;
+}
+
+.pollution-card:hover {
+  transform: translateY(-5px);
+}

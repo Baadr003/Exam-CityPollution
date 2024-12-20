@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.ehcache.org/v3"
+    xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <cache alias="currentPollution">
+        <expiry>
+            <ttl unit="minutes">5</ttl>
+        </expiry>
+        <heap unit="entries">200</heap>
+    </cache>
+
+    <cache alias="pollutionForecast">
+        <expiry>
+            <ttl unit="minutes">30</ttl>
+        </expiry>
+        <heap unit="entries">200</heap>
+    </cache>
+
+    <cache alias="pollutionHistory">
+        <expiry>
+            <ttl unit="hours">1</ttl>
+        </expiry>
+        <heap unit="entries">200</heap>
+    </cache>
+    <cache alias="favoriteCitiesAqi">
+        <expiry>
+            <ttl unit="minutes">10</ttl>
+        </expiry>
+        <heap unit="entries">500</heap>
+    </cache>
+
+    <cache alias="userAlerts">
+        <expiry>
+            <ttl unit="hours">24</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+</config>

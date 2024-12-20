@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vérification de votre compte PolluAlert</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f5f7fa;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h1 style="color: #2c5282; margin-bottom: 20px;">Vérification de votre compte</h1>
+        <p>Bonjour <span th:text="${username}"></span>,</p>
+        <p>Merci de vous être inscrit sur PolluAlert. Pour activer votre compte, veuillez cliquer sur le lien ci-dessous :</p>
+        <p style="text-align: center; margin: 30px 0;">
+            <a th:href="${verificationLink}" 
+               style="background-color: #2c5282; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px;">
+                Vérifier mon compte
+            </a>
+        </p>
+        <p>Ce lien expire dans 24 heures.</p>
+    </div>
+</body>
+</html>

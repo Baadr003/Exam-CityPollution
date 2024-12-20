@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PolluAlert - Alerte Qualité de l'Air</title>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.08);">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h1 style="color: #2563eb; margin: 0; font-size: 26px; font-weight: 600;">Alerte Qualité de l'Air</h1>
+            <div style="width: 60px; height: 3px; background-color: #2563eb; margin: 12px auto 0;"></div>
+        </div>
+
+        <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #e2e8f0;">
+            <h2 style="margin-top: 0; color: #1e293b; font-size: 20px;">
+                Ville : <span th:text="${cityName}" style="color: #2563eb;"></span>
+            </h2>
+            <p style="font-size: 18px; margin: 12px 0;">
+                Indice AQI : <strong th:text="${aqi}" style="color: #059669;"></strong>
+            </p>
+            <p style="font-size: 16px; margin: 12px 0;">
+                Niveau : <span th:text="${priority}" th:style="'color: ' + ${priorityColor} + ';'"></span>
+            </p>
+            <p style="font-size: 14px; color: #64748b;">
+                Date : <span th:text="${timestamp}"></span>
+            </p>
+        </div>
+
+        <div style="margin: 25px 0;">
+            <p th:text="${message}" style="font-size: 16px; color: #1e293b; line-height: 1.7;"></p>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background-color: #f8fafc; border-radius: 8px;">
+            <h3 style="color: #2563eb; margin-top: 0; font-size: 18px;">Recommandations :</h3>
+            <ul th:switch="${priority}" style="color: #475569; margin: 15px 0; padding-left: 20px;">
+                <div th:case="'Bon'">
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Profitez de vos activités en extérieur</li>
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Conditions idéales pour l'exercice physique</li>
+                </div>
+                <div th:case="'Modéré'">
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Réduisez les activités physiques intenses en extérieur</li>
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Les personnes sensibles devraient limiter l'exposition prolongée</li>
+                </div>
+                <div th:case="'Malsain'">
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Évitez les activités en extérieur</li>
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Portez un masque si nécessaire</li>
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Fermez les fenêtres</li>
+                </div>
+                <div th:case="'Dangereux'">
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Restez à l'intérieur</li>
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Utilisez un purificateur d'air si possible</li>
+                    <li style="margin-bottom: 8px; line-height: 1.5;">Contactez votre médecin si symptômes</li>
+                </div>
+            </ul>
+        </div>
+
+        <div style="margin-top: 35px; font-size: 13px; color: #64748b; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 25px;">
+            <p style="margin: 5px 0;">Cette alerte est générée automatiquement par PolluAlert.</p>
+            <p style="margin: 5px 0;">Pour gérer vos préférences de notification, <a href="#" style="color: #2563eb; text-decoration: none; font-weight: 500;">connectez-vous à votre compte</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
